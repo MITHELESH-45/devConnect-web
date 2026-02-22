@@ -1,22 +1,33 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice'
+import { useNavigate } from 'react-router-dom'
+import { BACKEND_BASE_URL } from '../utils/constants'
 
 const Login = () => {
   const [email, setEmailId] = useState('rahul@gmail.com')
   const [password, setPassword] = useState('Rahul@123')
+  const [error, setError] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate= useNavigate();
 
   const handleLogin = async(e) => {
     e.preventDefault()
     
     try{
-    const res=await axios.post('http://localhost:3000/login',{
+    const res=await axios.post(BACKEND_BASE_URL+'/login',{
       email,
       password
     },{
       withCredentials:true
     });
     console.log(res.data);
+    dispatch(addUser(res.data));
+    navigate('/');
     }catch(err){
+    setError(err.response.data.message);
     console.log(err);
     }
     
@@ -54,6 +65,8 @@ const Login = () => {
               className="input input-bordered w-full mt-1"
             />
           </div>
+
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
           <div className="card-actions mt-5">
             <button type="submit" className="btn btn-primary w-full">
