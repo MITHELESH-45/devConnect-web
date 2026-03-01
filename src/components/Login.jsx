@@ -17,18 +17,23 @@ const Login = () => {
     e.preventDefault()
     
     try{
+
     const res=await axios.post(BACKEND_BASE_URL+'/login',{
       email,
       password
     },{
       withCredentials:true
+
     });
-    console.log(res.data);
+    
     dispatch(addUser(res.data));
     navigate('/');
+
     }catch(err){
+
     setError(err.response.data.message);
     console.log(err);
+    
     }
     
   }

@@ -6,7 +6,6 @@ import { BACKEND_BASE_URL } from '../utils/constants'
 import { addFeed } from '../utils/feedSlice'
 
 const Feed = () => {
-
   
   const dispatch = useDispatch();
   const feed = useSelector((state) => state.feed);
