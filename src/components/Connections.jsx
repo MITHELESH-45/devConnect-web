@@ -22,9 +22,9 @@ const Connections = () => {
   };
 
   useEffect(() => {
-    if(!connections){
+    
     fetchConnection();
-    }
+    
   }, []);
 
   if (!connections) return null;

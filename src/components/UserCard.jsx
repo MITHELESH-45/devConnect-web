@@ -21,10 +21,10 @@ const UserCard = ({user}) => {
           </div>
         )}
 
-        {/* Gradient Overlay */}
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
-        {/* Text Overlay */}
+        
         <div className="absolute bottom-20 left-5 text-white">
           <h2 className="text-3xl font-bold">{firstName} {lastName}</h2>
           <p className="text-sm opacity-90 mt-1 w-64">
@@ -33,7 +33,7 @@ const UserCard = ({user}) => {
           <p>{age} years old, {gender}</p>
         </div>
 
-        {/* Buttons */}
+      
         <div className="absolute bottom-5 w-full flex justify-center gap-6">
           <button className="bg-blue-500 p-3 rounded-full text-white ">
             Ignored

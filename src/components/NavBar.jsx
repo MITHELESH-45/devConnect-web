@@ -59,6 +59,11 @@ const NavBar = () => {
               Connections             
           </Link>
         </li>
+        <li>
+          <Link to="/requests" className="justify-between flex items-center">
+              Requests           
+          </Link>
+        </li>
         <li><a>Settings</a></li>
         
         <li><a onClick={handleLogout}>Logout</a></li>
