@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { BACKEND_BASE_URL } from '../utils/constants';
 import { removeUser } from '../utils/userSlice';
-import { removeFeed } from '../utils/feedSlice';
+import { clearFeed } from '../utils/feedSlice';
+import { removeConnection } from '../utils/connectionSlice';
 
 const NavBar = () => {
 
   const user= useSelector((state)=>state.user);
+  console.log(user);
   const dispatch= useDispatch();
   const navigate= useNavigate();
    
@@ -19,7 +21,8 @@ const NavBar = () => {
         withCredentials:true
        });
        dispatch(removeUser());
-       dispatch(removeFeed());
+       dispatch(clearFeed());
+        dispatch(removeConnection());
        navigate('/login');
        
       
