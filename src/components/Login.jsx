@@ -17,7 +17,6 @@ const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  /* ================= LOGIN ================= */
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,7 +37,6 @@ const Auth = () => {
     }
   };
 
-  /* ================= SIGNUP ================= */
 
   const handleSignup = async (e) => {
     e.preventDefault();
